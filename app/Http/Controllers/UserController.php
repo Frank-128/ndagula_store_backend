@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -69,5 +70,8 @@ class UserController extends Controller
         catch(Exception $err ){
             return response()->json(['err'=>$err]);
         }
+    }
+    public function orders(){
+        return $this->hasOne(Order::class);
     }
 }

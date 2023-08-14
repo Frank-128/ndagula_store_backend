@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_id')->references('id')->on('products');
             $table->foreignId('order_id')->references('id')->on('orders');
-            $table->json('colors')->nullable();
-            $table->json('size')->nullable();
+            $table->string('colors')->nullable();
+            $table->string('size')->nullable();
             $table->integer('amount'); //how many products are chosen
             $table->timestamps();
         });

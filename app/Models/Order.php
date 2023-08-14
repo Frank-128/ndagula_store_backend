@@ -10,12 +10,13 @@ class Order extends Model
     use HasFactory;
     protected  $fillable =['user_id','status'];
 
+   
     public function users(){
         return $this->belongsTo(User::class);
     }
 
     public function products(){
-        return $this->belongsToMany(Product::class)->withPivot('colors','size','amount');
+        return $this->belongsToMany(Product::class,'product_order')->withPivot('colors','size','amount');
     }
 
     public function payments(){
